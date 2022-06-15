@@ -1,12 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>시간 지키미</title>
   </head>
   <body>
-    <h1>시간 지키미</h1>
+    <!-- 헤더 파트 -->
+    <header>
+      <h1>시간 지키미</h1>
+    </header>
+
+    <!-- 메인 파트 (투두리스트) -->
+    <main>
+      <section>
+        <form class="todo-form">
+          <input type="text" placeholder="오늘의 목표는?" /><button>
+            Enter
+          </button>
+        </form>
+        <div class="todo-box">
+          <ul></ul>
+        </div>
+      </section>
+      <section class="random-meal">
+        <button>메뉴 정해줌</button>
+        <div hidden>
+          <button>한</button>
+          <button>중</button>
+          <button>양</button>
+          <button>아무거나</button>
+        </div>
+      </section>
+    </main>
+    <script src="JS/todo.js"></script>
+    <script src="JS/meal.js"></script>
   </body>
 </html>
