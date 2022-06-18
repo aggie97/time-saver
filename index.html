@@ -5,37 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>시간 지키미</title>
+    <title>시간 지킴이</title>
   </head>
   <body>
     <!-- 헤더 파트 -->
     <header>
-      <h1>시간 지키미</h1>
+      <h1>시간 지킴이</h1>
     </header>
-
-    <!-- 메인 파트 (투두리스트) -->
+    <div class="option-box">
+      <div>
+        <input type="radio" id="todo" value="todo" name="menu" />
+        <label for="todo">todo</label>
+      </div>
+      <div>
+        <input type="radio" id="gacha" value="gacha" name="menu" />
+        <label for="gacha">gacha</label>
+      </div>
+    </div>
+    <!-- 메인 파트 (투두리스트, 타이무세이버) -->
     <main>
       <section>
-        <form class="todo-form">
-          <input type="text" placeholder="오늘의 목표는?" /><button>
-            Enter
-          </button>
-        </form>
-        <div class="todo-box">
-          <ul></ul>
+        <div class="todo" hidden>
+          <form class="todo-form">
+            <input type="text" placeholder="오늘의 목표는?" />
+            <button>Enter</button>
+          </form>
+          <div class="todo-box">
+            <ul></ul>
+          </div>
         </div>
       </section>
-      <section class="random-meal">
-        <button>메뉴 정해줌</button>
-        <div hidden>
-          <button>한</button>
-          <button>중</button>
-          <button>양</button>
-          <button>아무거나</button>
+      <section>
+        <div class="random-meal" hidden>
+          <button>메뉴 정해줌</button>
+          <div class="gacha-box" hidden>
+            <button class="kr">한</button>
+            <button class="cn">중</button>
+            <button class="us">양</button>
+            <button class="jp">일</button>
+            <button class="rd">아무거나</button>
+            <!-- <button class="back">돌아가기</button> -->
+          </div>
         </div>
       </section>
     </main>
-    <script src="JS/todo.js"></script>
-    <script src="JS/meal.js"></script>
+    <script src="./app.js"></script>
+    <script src="features/todo.js"></script>
+    <script src="features/meal.js"></script>
   </body>
 </html>
