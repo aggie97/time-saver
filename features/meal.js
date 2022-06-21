@@ -14,6 +14,8 @@ const mealOptions = {
   jp: ["텐동", "연어초밥", "타코야끼"],
 };
 
+const totalMeals = Object.values(mealOptions).flat();
+
 const getRandomMenu = (type) => {
   return type[Math.floor(Math.random() * type.length)];
 };
@@ -40,7 +42,7 @@ const pickOption = (event) => {
       console.log(getRandomMenu(mealOptions.jp));
       break;
     case "아무거나":
-      console.log(mealOptions);
+      console.log(getRandomMenu(totalMeals));
       break;
   }
 };
