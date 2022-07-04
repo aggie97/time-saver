@@ -12,21 +12,36 @@
     <header>
       <h1>시간 지킴이</h1>
     </header>
-    <nav>
+    <!-- 네브 파트 -->
+    <nav class="nav-bar">
       <div class="option-box">
         <div>
-          <input type="radio" id="todo" value="todo" name="menu" />
-          <!-- <label for="todo">✅<span>todo</span></label> -->
+          <a href="#">
+            <img
+              style="display: block; width: 16px; height: 16px"
+              src="./icons/home.png"
+            />
+          </a>
         </div>
         <div>
-          <input type="radio" id="gacha" value="gacha" name="menu" />
-          <!-- <label for="gacha">🍽<span>gacha</span></label> -->
+          <a href="#todo"
+            ><img
+              style="display: block; width: 16px; height: 16px"
+              src="./icons/todo.png"
+          /></a>
+        </div>
+        <div>
+          <a href="#gacha"
+            ><img
+              style="display: block; width: 16px; height: 16px"
+              src="./icons/gamble.png"
+          /></a>
         </div>
       </div>
     </nav>
     <!-- 메인 파트 (투두리스트, 음식 메뉴 정하기) -->
     <main>
-      <section>
+      <section id="todo">
         <div class="todo section">
           <form class="todo-form">
             <input type="text" placeholder="오늘의 목표는?" />
@@ -37,7 +52,7 @@
           </div>
         </div>
       </section>
-      <section>
+      <section id="gacha">
         <div class="random-meal section">
           <button>메뉴 정해줌</button>
           <div class="gacha-box" hidden>
@@ -52,6 +67,8 @@
         </div>
       </section>
     </main>
+    <!-- 푸터 파트 -->
+    <footer>footer</footer>
     <script src="./app.js"></script>
     <script src="features/todo.js"></script>
     <script src="features/meal.js"></script>
