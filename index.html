@@ -10,7 +10,7 @@
   <body>
     <!-- 헤더 파트 -->
     <header>
-      <h1>시간 지킴이</h1>
+      <!-- <h1>시간 지킴이</h1> -->
     </header>
     <!-- 네브 파트 -->
     <nav class="nav-bar">
@@ -41,14 +41,19 @@
     </nav>
     <!-- 메인 파트 (투두리스트, 음식 메뉴 정하기) -->
     <main>
+      <!-- <section id="home"></section> -->
       <section id="todo">
         <div class="todo section">
           <form class="todo-form">
-            <input type="text" placeholder="오늘의 목표는?" />
+            <input type="text" placeholder="Write todo & Enter" />
             <button>Enter</button>
           </form>
           <div class="todo-box">
-            <ul></ul>
+            <div class="todo-div">
+              <div class="todo-li">test</div>
+              <button class="done-button">✅</button>
+              <button class="delete-button">❎</button>
+            </div>
           </div>
         </div>
       </section>
@@ -68,7 +73,13 @@
       </section>
     </main>
     <!-- 푸터 파트 -->
-    <footer>footer</footer>
+    <footer>
+      <div>
+        <a href="https://www.freepik.com/vectors/correct-sign"
+          >Correct sign vector created by starline - www.freepik.com</a
+        >
+      </div>
+    </footer>
     <script src="./app.js"></script>
     <script src="features/todo.js"></script>
     <script src="features/meal.js"></script>
