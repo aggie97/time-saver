@@ -1,4 +1,4 @@
-const navBar = document.querySelector(".nav-bar");
+const navBar = document.querySelector("nav");
 
 const observer = new IntersectionObserver(
   ([e]) => e.target.classList.toggle("isSticky", e.intersectionRatio < 1),

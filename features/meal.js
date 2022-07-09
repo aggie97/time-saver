@@ -1,5 +1,5 @@
 const mealBox = document.querySelector(".random-meal"),
-  startButton = mealBox.querySelector("button"),
+  startButton = mealBox.querySelector(".start-button"),
   menuLabel = mealBox.querySelector(".menu-label"),
   buttonBox = mealBox.querySelector(".gacha-box"),
   krButton = buttonBox.querySelector(".kr"),
@@ -20,8 +20,9 @@ const totalMeals = Object.values(mealOptions).flat();
 
 const startGacha = (event) => {
   // console.log(event.target.parentNode);
-  buttonBox.hidden = false;
   startButton.hidden = true;
+  buttonBox.hidden = false;
+  buttonBox.style.display = "flex";
 };
 
 const getRandomMenu = (type) => {
