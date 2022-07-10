@@ -45,7 +45,7 @@ nav:hover {
   border-radius: 50%;
   background-color: aqua;
 
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .option-box div a:hover {
@@ -202,7 +202,7 @@ section:nth-child(2n) {
 .start-button:hover {
   background-color: rgb(34, 24, 97);
   color: white;
-  text-shadow: 0px 0px 20px aqua;
+  text-shadow: 0px 0px 20px aqua, 0px 0px 20px aqua;
   letter-spacing: 4px;
 }
 

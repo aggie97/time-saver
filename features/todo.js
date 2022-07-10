@@ -3,11 +3,24 @@ const todoInput = todoForm.querySelector("input");
 const inputButton = todoForm.querySelector("button");
 const todoBox = document.querySelector(".todo-box");
 
+let todoArray = [];
+
 const submitForm = (e) => {
   e.preventDefault();
   let myTodo = e.target[0].value;
-  myTodo ? addTodo(myTodo) : alert("목표를 적어주세요.");
-  todoInput.value = ""; // 이렇게 요소의 값을 직접적으로 바꾸는 게 바람직한 걸까?
+  if (myTodo === "") {
+    alert("목표를 작성해주세요.");
+  } else {
+    todoArray.push(myTodo);
+    addTodo(myTodo);
+    saveTodoInLocalStorage(todoArray);
+    console.log("todos:", todoArray);
+    todoInput.value = ""; // 이렇게 요소의 값을 직접적으로 바꾸는 게 바람직한 걸까?
+  }
+};
+
+const saveTodoInLocalStorage = (todos) => {
+  localStorage.setItem("todos", todos);
 };
 
 const addTodo = (todo) => {
@@ -42,8 +55,31 @@ const checkTodo = (event) => {
 };
 
 const deleteTodo = (event) => {
-  let todoLi = event.target.parentNode;
-  todoLi.remove();
+  let todoDiv = event.target.parentNode;
+  todoDiv.remove();
+  let targetTodo = todoDiv.children[0].innerText;
+  todoArray = localStorage.getItem("todos").split(",");
+  console.log("todoArray", todoArray);
+  todoArray = todoArray.filter((todo) => todo !== targetTodo);
+  console.log("filteredArr", todoArray);
+  saveTodoInLocalStorage(todoArray);
+  // loadTodos(filteredArr);
 };
+
+const loadTodos = (todoArray) => {
+  todoArray = localStorage.getItem("todos");
+  console.log("loadedArr", typeof todoArray);
+  if (todoArray === "") {
+    console.log("empty");
+    todoArray = [];
+  } else {
+    console.log("not empty");
+    todoArray.split(",").forEach((todo) => {
+      addTodo(todo);
+    });
+  }
+};
+
+loadTodos(todoArray);
 
 todoForm.addEventListener("submit", submitForm);
