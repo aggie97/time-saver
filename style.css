@@ -7,13 +7,9 @@
 }
 
 header {
-  text-align: center;
-  background-color: red;
-}
-
-nav {
   background-color: rgb(0, 24, 45);
   border-bottom: 1px solid black;
+  width: 100%;
   position: sticky;
   top: -1px;
 
@@ -23,12 +19,12 @@ nav {
   z-index: 99;
 }
 
-nav.isSticky {
+header.isSticky {
   background-color: transparent;
   opacity: 0.5;
 }
 
-nav:hover {
+header:hover {
   opacity: 1;
   background-color: rgb(0, 24, 45);
 }

@@ -4,15 +4,19 @@ const inputButton = todoForm.querySelector("button");
 const todoBox = document.querySelector(".todo-box");
 
 let todoArray = [];
-
+console.log("refresh");
 const submitForm = (e) => {
   e.preventDefault();
-  let myTodo = e.target[0].value;
-  if (myTodo === "") {
+
+  if (e.target[0].value === "") {
     alert("목표를 작성해주세요.");
   } else {
-    todoArray.push(myTodo);
-    addTodo(myTodo);
+    const todoObj = {
+      todo: e.target[0].value,
+      id: Math.random(),
+    };
+    todoArray.push(todoObj);
+    addTodo(todoObj);
     saveTodoInLocalStorage(todoArray);
     console.log("todos:", todoArray);
     todoInput.value = ""; // 이렇게 요소의 값을 직접적으로 바꾸는 게 바람직한 걸까?
@@ -20,10 +24,11 @@ const submitForm = (e) => {
 };
 
 const saveTodoInLocalStorage = (todos) => {
-  localStorage.setItem("todos", todos);
+  let todo = JSON.stringify(todos);
+  localStorage.setItem("todos", todo);
 };
 
-const addTodo = (todo) => {
+const addTodo = (todoObj) => {
   const todoDiv = document.createElement("div");
   const todoLi = document.createElement("li");
   const doneButton = document.createElement("button");
@@ -34,7 +39,8 @@ const addTodo = (todo) => {
   doneButton.classList.add("done-button");
   deleteButton.classList.add("delete-button");
 
-  todoLi.innerText = todo;
+  todoLi.innerText = todoObj.todo;
+  todoDiv.id = todoObj.id;
   doneButton.innerText = "✅";
   deleteButton.innerText = "❎";
 
@@ -56,30 +62,24 @@ const checkTodo = (event) => {
 
 const deleteTodo = (event) => {
   let todoDiv = event.target.parentNode;
-  todoDiv.remove();
-  let targetTodo = todoDiv.children[0].innerText;
-  todoArray = localStorage.getItem("todos").split(",");
-  console.log("todoArray", todoArray);
-  todoArray = todoArray.filter((todo) => todo !== targetTodo);
-  console.log("filteredArr", todoArray);
+  todoArray = todoArray.filter((todoObj) => +todoObj.id !== +todoDiv.id);
   saveTodoInLocalStorage(todoArray);
-  // loadTodos(filteredArr);
+  todoDiv.remove();
 };
 
-const loadTodos = (todoArray) => {
-  todoArray = localStorage.getItem("todos");
-  console.log("loadedArr", typeof todoArray);
-  if (todoArray === "") {
-    console.log("empty");
+const loadTodos = () => {
+  let loadedData = JSON.parse(localStorage.getItem("todos"));
+  console.log("loadedData", loadedData);
+  if (loadedData === []) {
     todoArray = [];
   } else {
-    console.log("not empty");
-    todoArray.split(",").forEach((todo) => {
-      addTodo(todo);
+    todoArray = loadedData;
+    todoArray.forEach((todoObj) => {
+      addTodo(todoObj);
     });
   }
 };
 
-loadTodos(todoArray);
+loadTodos();
 
 todoForm.addEventListener("submit", submitForm);
