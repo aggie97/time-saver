@@ -8,7 +8,7 @@
 
 header {
   background-color: rgb(0, 24, 45);
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(160, 160, 160, 0.777);
   width: 100%;
   position: sticky;
   top: -1px;
@@ -65,6 +65,74 @@ section:nth-child(2n) {
   background-color: rgb(46, 45, 115);
 }
 
+/* ------------------- home styling ------------------- */
+
+#home {
+  background-color: rgb(0, 24, 45);
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  font-family: "Cute Font", cursive;
+  font-size: 2rem;
+}
+
+#home h1 {
+  letter-spacing: 3px;
+  line-height: 2em;
+}
+
+.intro {
+  animation: elevatedown 1.5s;
+  position: absolute;
+  top: 20vh;
+}
+
+@keyframes elevatedown {
+  from {
+    margin-top: -100%;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0%;
+    opacity: 1;
+  }
+}
+
+#home > div {
+  animation: elevateup 1.5s forwards;
+  animation-delay: 1.5s;
+  position: relative;
+  top: 0;
+  opacity: 0;
+}
+
+@keyframes elevateup {
+  from {
+    margin-bottom: -50%;
+    opacity: 0;
+  }
+  to {
+    margin-bottom: 0;
+    opacity: 1;
+  }
+}
+
+#home > div > a {
+  color: rgb(0, 24, 45);
+  padding: 20px 50px;
+  background-color: aqua;
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  transition: 0.3s;
+}
+
+#home > div > a:hover {
+  letter-spacing: 10px;
+  font-size: 1.5rem;
+  padding-right: 40px;
+}
+
 /* ------------------- todo styling ------------------ */
 
 .todo {
@@ -73,8 +141,8 @@ section:nth-child(2n) {
   align-items: center;
   flex-direction: column;
   padding: 1rem;
-  margin: 1rem 0;
-  min-width: 80vw;
+  margin: 1rem 40px;
+  width: 100%;
 
   border-radius: 1rem;
   box-shadow: 0px 0px 10px 3px rgb(0, 0, 0, 0.5);
