@@ -51,6 +51,7 @@ header:hover {
 
 section {
   min-height: 100vh;
+  max-height: 1000px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -70,10 +71,12 @@ section:nth-child(2n) {
 #home {
   background-color: rgb(0, 24, 45);
   flex-direction: column;
+  justify-content: space-around;
+  gap: 50px;
   position: relative;
   overflow: hidden;
   font-family: "Cute Font", cursive;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 #home h1 {
@@ -99,20 +102,18 @@ section:nth-child(2n) {
 }
 
 #home > div {
-  animation: elevateup 1.5s forwards;
+  animation: bluroff 1.5s forwards;
   animation-delay: 1.5s;
-  position: relative;
-  top: 0;
+  position: absolute;
+  top: 80vh;
   opacity: 0;
 }
 
-@keyframes elevateup {
+@keyframes bluroff {
   from {
-    margin-bottom: -50%;
     opacity: 0;
   }
   to {
-    margin-bottom: 0;
     opacity: 1;
   }
 }
@@ -122,15 +123,36 @@ section:nth-child(2n) {
   padding: 20px 50px;
   background-color: aqua;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 2rem;
   letter-spacing: 3px;
   transition: 0.3s;
 }
 
 #home > div > a:hover {
   letter-spacing: 10px;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   padding-right: 40px;
+}
+
+@media (max-width: 859px) {
+  #home {
+    font-size: 2rem;
+  }
+  .intro {
+    top: 10vh;
+  }
+  #home > div {
+    top: 50vh;
+  }
+}
+
+@media (max-width: 599px) {
+  #home {
+    font-size: 1.5rem;
+  }
+  #home > div > a {
+    font-size: 1.5rem;
+  }
 }
 
 /* ------------------- todo styling ------------------ */
@@ -165,7 +187,7 @@ section:nth-child(2n) {
 .todo-form input {
   width: 50%;
   height: 100%;
-  clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
+
   color: rgb(0, 255, 255);
   outline: none;
   text-indent: 2px;
@@ -176,7 +198,7 @@ section:nth-child(2n) {
 .todo-form button {
   height: 100%;
   color: rgb(164, 164, 164);
-  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+
   margin-left: -5px;
   padding-right: 1.5rem;
   transition: all 0.3s ease;
