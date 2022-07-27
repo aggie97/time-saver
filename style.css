@@ -3,20 +3,23 @@
   scroll-behavior: smooth;
   padding: 0;
   margin: 0;
-  text-align: center;
+}
+
+body {
+  background-color: rgb(0, 24, 45);
 }
 
 header {
-  background-color: rgb(0, 24, 45);
-  border-bottom: 1px solid rgba(160, 160, 160, 0.777);
   width: 100%;
   position: sticky;
   top: -1px;
-
-  padding-top: calc(1em + 1px);
-  padding-bottom: 1em;
+  background-color: rgb(0, 24, 45);
+  padding: calc(1rem + 1px) 30px;
   transition: 0.3s;
   z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header.isSticky {
@@ -27,6 +30,20 @@ header.isSticky {
 header:hover {
   opacity: 1;
   background-color: rgb(0, 24, 45);
+}
+
+.banner-box {
+  flex: 1;
+}
+
+.banner-box > span {
+  color: aqua;
+  font-size: 2rem;
+  letter-spacing: 5px;
+}
+
+.nav-bar {
+  padding-right: 1rem;
 }
 
 .option-box {
@@ -40,7 +57,6 @@ header:hover {
   padding: 10px;
   border-radius: 50%;
   background-color: aqua;
-
   transition: 0.3s;
 }
 
@@ -50,7 +66,7 @@ header:hover {
 }
 
 section {
-  min-height: 80vh;
+  min-height: 1000px;
   max-height: 1500px;
   width: 100%;
   display: flex;
@@ -73,7 +89,7 @@ section:nth-child(2n) {
   display: block;
   overflow: hidden;
   font-family: "Nanum Gothic", sans-serif;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 300;
 }
 
@@ -82,6 +98,9 @@ section:nth-child(2n) {
   line-height: 2em;
   animation: elevatedown 1.5s;
   margin-bottom: 50px;
+  text-align: left;
+  width: 90vw;
+  margin: 0 auto;
 }
 
 @keyframes elevatedown {
@@ -99,6 +118,9 @@ section:nth-child(2n) {
   animation: bluroff 2s forwards;
   animation-delay: 1.5s;
   opacity: 0;
+  width: 90vw;
+  margin: 0 auto;
+  margin-top: 2rem;
 }
 
 @keyframes bluroff {
@@ -117,19 +139,17 @@ section:nth-child(2n) {
   text-decoration: none;
   letter-spacing: 3px;
   transition: 0.3s;
+  letter-spacing: 5px;
 }
 
 #home > div > a:hover {
-  letter-spacing: 10px;
-  font-size: 2.5rem;
-  padding-right: 40px;
   background-color: rgb(125, 255, 255);
   box-shadow: 0px 0px 30px 1px rgb(0, 255, 255);
 }
 
 @media screen {
   #home {
-    padding-top: 20vh;
+    padding-top: 8rem;
   }
   #home > div > a {
     font-size: 2rem;
@@ -138,8 +158,8 @@ section:nth-child(2n) {
 
 @media (max-width: 859px) {
   #home {
-    padding-top: 15vh;
-    font-size: 2rem;
+    padding-top: 5rem;
+    font-size: 1.5rem;
   }
   #home > div > a {
     font-size: 1.5rem;
@@ -148,7 +168,6 @@ section:nth-child(2n) {
 
 @media (max-width: 599px) {
   #home {
-    padding-top: 10vh;
     font-size: 1.25rem;
   }
   #home > div > a {
@@ -174,10 +193,12 @@ section:nth-child(2n) {
 
 .todo-form {
   width: 100%;
+  text-align: center;
 }
 
 .todo-form input,
 .todo-form button {
+  text-align: center;
   font-size: 1.5rem;
   padding: 1rem;
   border: none;

@@ -12,11 +12,14 @@
       rel="stylesheet"
     />
 
-    <title>시간 지킴이</title>
+    <title>Time Saver</title>
   </head>
   <body>
     <!-- 헤더 파트 -->
     <header>
+      <div class="banner-box">
+        <span>Time Saver</span>
+      </div>
       <nav class="nav-bar">
         <div class="option-box">
           <div>
@@ -47,22 +50,18 @@
     <!-- 메인 파트 (투두리스트, 음식 메뉴 정하기) -->
     <main>
       <section id="home" style="color: #ddd">
-        <h1 class="intro">
+        <h2 class="intro">
+          <p>안녕하세요.</p>
           <p>Time Saver에 오신 것을</br>환영합니다.</p>
-        </h1>
+        </h2>
         <div>
           <a href="#next">다음</a>
         </div>
       </section>
       <section id="todo">
-        <div class="todo section">
-          <form class="todo-form">
-            <input type="text" placeholder="Write your goal" /><button>Enter</button>
-          </form>
-          <div class="todo-box"></div>
-        </div>
+        <a href="./pages/todo/todoList.html">go to todo</a>
       </section>
-      <section id="gacha">
+      <!-- <section id="gacha">
         <div class="random-meal section">
           <a href="#start" class="start-button">Start</a>
           <div class="gacha-box" hidden>
@@ -75,11 +74,10 @@
             <button class="rd meal-button">hot</button>
             <button class="rd meal-button">미정</button>
             <button class="rd meal-button">미정</button>
-            <!-- <button class="back">돌아가기</button> -->
           </div>
           <div class="menu-label"></div>
         </div>
-      </section>
+      </section> -->
     </main>
     <!-- 푸터 파트 -->
     <footer>
@@ -91,7 +89,6 @@
     </footer>
     <script src="./app.js"></script>
     <script src="./features/home.js"></script>
-    <script src="features/todo.js"></script>
-    <script src="features/meal.js"></script>
+    <script src="./features/meal.js"></script>
   </body>
 </html>
